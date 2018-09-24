@@ -10,7 +10,7 @@
   <tbody>
     <% @pupils.each do |pupil| %>
       <tr>
-        <td><%= link_to 'Show', pupil %></td>
+        <td class="big"><%= link_to "#{pupil.first_name} #{pupil.last_name}", pupil %></td>
         <td><%= link_to 'Edit', edit_pupil_path(pupil) %></td>
         <td><%= link_to 'Destroy', pupil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

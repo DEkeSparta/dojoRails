@@ -1,2 +1,5 @@
+<h1> <%= @pupil.first_name %> <%= @pupil.last_name %> </h1>
+<p>Belt: <%= @pupil.belt %> </p>
+<p>Age: <%= @pupil.age %> </p>
 <%= link_to 'Edit', edit_pupil_path(@pupil) %> |
 <%= link_to 'Back', pupils_path %>

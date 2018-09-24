@@ -10,7 +10,8 @@
   <tbody>
     <% @dojos.each do |dojo| %>
       <tr>
-        <td><%= link_to 'Show', dojo %></td>
+        <td class="big"><%= link_to dojo.name, dojo %></td>
+        <td>Pupils: <%= dojo.total %> </td>
         <td><%= link_to 'Edit', edit_dojo_path(dojo) %></td>
         <% if dojo.teachers.length == 0 %>
           <td><%= link_to 'Destroy', dojo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
