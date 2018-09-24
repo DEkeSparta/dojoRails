@@ -1,5 +1,6 @@
 class DojosController < ApplicationController
   before_action :set_dojo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_teacher!, only: [:edit, :create, :new, :update, :destroy]
 
   # GET /dojos
   # GET /dojos.json
@@ -69,6 +70,6 @@ class DojosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dojo_params
-      params.fetch(:dojo, {})
+      params.require(:dojo).permit(:name, :speciality)
     end
 end

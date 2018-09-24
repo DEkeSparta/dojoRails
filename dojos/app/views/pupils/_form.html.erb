@@ -1,4 +1,4 @@
-<%= form_with(model: pupil, local: true) do |form| %>
+<%= form_with(model: pupil, local: true) do |f| %>
   <% if pupil.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(pupil.errors.count, "error") %> prohibited this pupil from being saved:</h2>
@@ -11,7 +11,34 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age, autocomplete: "age" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :belt %><br />
+    <%= f.select :belt, ["White","Yellow","Gold","Orange","Green","Blue","Purple","Brown","Red","Black"], autocomplete: "belt" %>
+  </div>
+
+  <div class="field hidden">
+    <%= f.label :teacher %><br />
+    <%= f.collection_select :teacher_id, Teacher.all, :id, :last_name %>
+  </div>
+
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

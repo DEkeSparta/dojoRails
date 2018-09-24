@@ -1,5 +1,6 @@
 class PupilsController < ApplicationController
   before_action :set_pupil, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_teacher!
 
   # GET /pupils
   # GET /pupils.json
@@ -25,6 +26,7 @@ class PupilsController < ApplicationController
   # POST /pupils.json
   def create
     @pupil = Pupil.new(pupil_params)
+    @pupil.teacher = current_teacher
 
     respond_to do |format|
       if @pupil.save
@@ -40,6 +42,7 @@ class PupilsController < ApplicationController
   # PATCH/PUT /pupils/1
   # PATCH/PUT /pupils/1.json
   def update
+    @pupil.teacher = current_teacher
     respond_to do |format|
       if @pupil.update(pupil_params)
         format.html { redirect_to @pupil, notice: 'Pupil was successfully updated.' }
@@ -69,6 +72,6 @@ class PupilsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pupil_params
-      params.fetch(:pupil, {})
+      params.require(:pupil).permit(:first_name, :last_name, :age, :belt, :teacher_id)
     end
 end

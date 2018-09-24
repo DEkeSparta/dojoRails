@@ -1,4 +1,4 @@
-<%= form_with(model: dojo, local: true) do |form| %>
+<%= form_with(model: dojo, local: true) do |f| %>
   <% if dojo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(dojo.errors.count, "error") %> prohibited this dojo from being saved:</h2>
@@ -11,7 +11,17 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speciality %><br />
+    <%= f.text_field :speciality, autocomplete: "speciality" %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

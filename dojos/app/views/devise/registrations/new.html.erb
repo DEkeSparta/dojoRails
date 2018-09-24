@@ -21,6 +21,31 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age, autocomplete: "age" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :belt %><br />
+    <%= f.select :belt, ["White","Yellow","Gold","Orange","Green","Blue","Purple","Brown","Red","Black"], autocomplete: "belt" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dojo %><br />
+    <%= f.collection_select :dojo_id, Dojo.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

@@ -5,5 +5,9 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :pupils, dependent: :destroy
+  belongs_to :dojo
 
+  def full_name
+    return self.first_name + " " + self.last_name
+  end
 end

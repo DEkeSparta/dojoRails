@@ -18,6 +18,15 @@
       <%= link_to "New Dojo", new_dojo_path %>
       <%= link_to "All Pupils", pupils_path %>
       <%= link_to "New Pupil", new_pupil_path %>
+
+      <% if teacher_signed_in? %>
+        Signed in as <%= "#{current_teacher.first_name} #{current_teacher.last_name}" %>
+        <%= link_to "Update teacher", edit_teacher_registration_path
+        -%> <%= link_to "Logout", destroy_teacher_session_path, method: :delete -%>
+      <% else %>
+        <%= link_to "Sign Up", new_teacher_registration_path
+        -%> <%= link_to "Login", new_teacher_session_path -%>
+      <% end %>
     </nav>
 
 
