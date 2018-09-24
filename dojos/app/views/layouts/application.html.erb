@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dojos</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <nav>
+      <%= link_to "All Dojos", dojos_path %>
+      <%= link_to "New Dojo", new_dojo_path %>
+      <%= link_to "All Pupils", pupils_path %>
+      <%= link_to "New Pupil", new_pupil_path %>
+    </nav>
+
+
+    <%= yield %>
+  </body>
+</html>
